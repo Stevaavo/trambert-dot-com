@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54755094-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-54755094-3');
+    </script>
+
+
+
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="An easy-to-use calculator for determining how much equity/salary a new employee should be offered, via the Graham Equity Equation.">
+    <meta name="author" content="Steve Trambert">
+    <link rel="icon" href="favicon.ico">
+
+    <title>The Graham Equation Calculator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="index.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
+
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <header class="header clearfix">
+        <h3 class="text-muted">The Paul Graham Equity Equation Calculator</h3>
+      </header>
+
+      <main role="main">
+
+        <div class="jumbotron">
+          <h1 class="display-3">The Graham Equity Equation</h1>
+
+          <img class=equationImage src="GrahamEqImgSolveForEquity.png">
+
+
+
+          <br>
+          <p class="lead">...is a mathematical method <a href="http://paulgraham.com/equity.html" target="_blank" onclick="trackOutboundClick('http://paulgraham.com/equity.html'); return false;">proposed by Paul Graham</a> for determining a reasonable portion of equity to offer an employee or investor.</p>
+
+<!--           <p>Graham published the equation a couple years after he co-founded Y Combinator.  It computes a suggested equity stake and salary for a new employee/investor as a function of the added value they're expected to bring to the company.</p>
+ -->        </div>
+
+        <div class="row marketing">
+          <div class="col-lg-8">
+           
+
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><i class="fas fa-plus"></i> Who is this Paul Graham guy?</a>
+                  </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                  <div class="panel-body">Paul Graham is a person with some entrepreneurial feathers in his cap.  He's a successful tech founder from the early days of the internet, one of the co-founders of <a href="https://www.forbes.com/sites/tomiogeron/2012/04/30/top-tech-incubators-as-ranked-by-forbes-y-combinator-tops-with-7-billion-in-value/#334d275651f3" target="_blank" onclick="trackOutboundClick('https://www.forbes.com/sites/tomiogeron/2012/04/30/top-tech-incubators-as-ranked-by-forbes-y-combinator-tops-with-7-billion-in-value/#334d275651f3'); return false;">Y Combinator</a>, a computer programmer specializing in Lisp, and the creator of <a href="https://techcrunch.com/2013/05/18/the-evolution-of-hacker-news/" target="_blank" onclick="trackOutboundClick('https://techcrunch.com/2013/05/18/the-evolution-of-hacker-news/'); return false;">Hacker News</a>.  He's also a prolific blogger on subjects of computer science and tech entrepreneurship.</div>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><i class="fas fa-plus"></i> How does the Graham Equity Equation work?</a>
+                  </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                  <div class="panel-body">
+                   <p>The Graham Equity Equation attempts to determine the amount of equity/salary that would "balance out" the added value that a new employee is expected to bring to a company.</p>
+
+                    <p>You can read an in-depth explanation of how the equation works in Paul Graham's original blog post <a href="http://paulgraham.com/equity.html" target="_blank" onclick="trackOutboundClick('http://paulgraham.com/equity.html'); return false;">here</a>.  I'd also recommend <a href="https://blog.keen.io/how-i-negotiated-my-startup-compensation-a291a9fb20a8" target="_blank" onclick="trackOutboundClick('https://blog.keen.io/how-i-negotiated-my-startup-compensation-a291a9fb20a8'); return false;">this excellent article from Michelle Wetzler</a>, which provides a walkthorugh of three different methods she used to evaluate her own job offer.  Her article is especially helpful because - in addition to covering the Graham Equity Equation - it also explores two alternatives for determining compensation.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><i class="fas fa-plus"></i> Can you walk me through an example?</a>
+                  </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <p>Sure!</p>
+
+                    <p>Imagine that you're a mid-level embedded software programmer, and you've been offered a spot as the 5th employee at a small, early-stage startup.  The startup hasn't received series-A funding, but early seed investments have put their valuation at $10 million.  You think that's optimistic, but plausible.  After reviewing your budget, you decide that you need $60k/year to live comfortably, and past that you'd like all your compensation to come in the form of equity.</p>
+
+                    <p>The last thing you need to decide is your "valuation multiplier."  On the one hand, you're an early employee, and embedded programmers are hard to come by.  On the other hand, you're not a senior-level programmer yet, and you don't have experience designing firmware for the kind of hardware that this startup will be manufacturing.  So, you finally decide that adding you to the team will make the company appear roughly 10% more valuable to investors.</p>
+
+                    <p>Now you're ready to use the Graham Equity Equation to calculate how much equity you should be offered!  Click this button to fill the calculator with the <small><button type="button" class="btn btn-xs btn-primary" id="exampleButton" onclick="fillExampleNumbers()">example numbers</button></small> for this hypothetical embedded software developer.</p>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"><i class="fas fa-plus"></i> What are some shortcomings of the Equity Equation?</a>
+                  </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <p>The Graham Equity Equation doesn't account for the "market rate" of a particular type of employee.  For example, let's say you run a restaurant worth $1mln.  You realize that by hiring a delivery driver, you can raise the value of your restaurant by 30%, due to added revenue from delivery orders.</p>
+
+                    <p>The Equity Equation would tell you that this delivery driver should get an annual salary of $102,000 (assuming you gave him no equity).  In reality, however, $102k is well above the $27k average salary for a delivery driver.  Paying above the market rate probably makes sense for such a key role, but $102k is pretty far out.</p>
+
+                    <p>I recommend <a href="https://blog.keen.io/how-i-negotiated-my-startup-compensation-a291a9fb20a8" target="_blank" onclick="trackOutboundClick('https://blog.keen.io/how-i-negotiated-my-startup-compensation-a291a9fb20a8'); return false;">this article by Michelle Wetzler</a>, in which she takes you through three different methods she used to evaluate her own job offer, only one of which is the Graham Equity Equation.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div> 
+
+            <p>The equation involves the 4 variables below.  By providing any 3 of these numbers, you can solve for the 4th number.</p>
+            
+
+            <a name="topOfCalculator"></a>
+
+            <h3>Which number would you like to calculate?</h3>
+
+
+            <br>
+
+
+            <div> 
+
+              <table id=inputTable>
+              
+                <tr>
+                  <td class="bordered leadingTD">
+                    <input type="radio" class=glowingUntilClicked name="outputRadio" id="equityRadio">
+                  </td>
+
+                  <td class="bordered">
+
+                    <table>
+                      <tr><td><h4>EQUITY</h4> <small><a data-toggle="collapse" data-target="#equityCollapse" class="variableExplainerLink">What's this?</a></small></td></tr>
+                      <tr><td>
+                        <div id="equityCollapse" class="collapse in expandableTooltip variableExplainer" style="color:black;">
+                          The percentage of the company that will/should be given to the new employee.
+                        </div>
+                      </td></tr>
+
+                    </table>
+
+                  </td>
+
+                  <td class="bordered inputTD hiddenCell">
+
+                    <div class="input-group">
+
+                      <input type=text id=equityNumBox name=varInputBox class="form-control numberInputBox" max="1000000" min="0">
+                      <span class="input-group-addon">%</span>
+                    </div>
+                      <div class="hintPara hiddenPara"><p>Got it! Now, fill in the other three numbers and hit "calculate."</p></div>
+                      <div class="recalculatePara hiddenPara"><p>Hit "Calculate!" to update this number.</p></div>
+
+                  </td>
+
+                </tr>
+
+
+                <tr>
+                  <td class="bordered leadingTD">
+                    <input type="radio" class=glowingUntilClicked name="outputRadio" id="salaryRadio" >
+                  </td>
+
+                  <td class="bordered">
+                    <table>
+
+
+                      <tr><td><h4>ANNUAL SALARY</h4> <small><a data-toggle="collapse" data-target="#salaryCollapse" class="variableExplainerLink">What's this?</a></small></td></tr>
+                      <tr><td>
+                        <div id="salaryCollapse" class="collapse in expandableTooltip variableExplainer" style="color:black;">
+                          The amount of cash you (or your new hire) will be paid annually.
+                        </div>
+                      </td></tr>
+
+                    </table>
+                  </td>
+
+                  <td class="bordered inputTD hiddenCell">
+
+                    <div class="input-group">
+                      
+                      <span class="input-group-addon">$</span> 
+                      <input type=text id=salaryNumBox name=varInputBox class="form-control numberInputBox" max="1000000" min="0">
+                    </div>
+                    <div class="hintPara hiddenPara"><p>Got it! Now, fill in the other three numbers and hit "calculate."</p></div>
+                    <div class="recalculatePara hiddenPara"><p>Hit "Calculate!" to update this number.</p></div>
+                              
+                  </td>
+
+                </tr>       
+
+
+
+                <tr>
+                  <td class="bordered leadingTD">
+                    <input type="radio" class=glowingUntilClicked name="outputRadio" id="valueRadio" >
+                  </td>
+
+                  <td class="bordered">
+                    <table>
+
+                      <tr><td><h4>VALUATION OF COMPANY</h4> <small><a data-toggle="collapse" data-target="#valueCollapse" class="variableExplainerLink">What's this?</a></small></td></tr>
+                      <tr><td>
+                        <div id="valueCollapse" class="collapse in expandableTooltip variableExplainer" style="color:black;">
+                          How much money the company is currently worth.
+                        </div>
+                      </td></tr>
+
+                    </table>
+                  </td>
+
+                  <td class="bordered inputTD hiddenCell">
+
+                    <div class="input-group">
+                      
+                      <span class="input-group-addon">$</span> 
+                      <input type=text id=valueNumBox name=varInputBox class="form-control numberInputBox" max="1000000" min="0">
+                    </div>
+                    <div class="hintPara hiddenPara"><p>Got it! Now, fill in the other three numbers and hit "calculate."</p></div>
+                    <div class="recalculatePara hiddenPara"><p>Hit "Calculate!" to update this number.</p></div>
+                              
+                  </td>
+
+                </tr>  
+
+
+                <tr>
+                  <td class="bordered leadingTD ">
+                    <input type="radio" class=glowingUntilClicked name="outputRadio" id="vMultiplierRadio" >
+                  </td>
+
+                  <td class="bordered">
+                    <table>
+
+                      <tr><td><h4>THE NEW HIRE'S "VALUATION MULTIPLIER"</h4> <small><a data-toggle="collapse" data-target="#vMultCollapse" class="variableExplainerLink">What's this?</a></small></td></tr>
+                      <tr><td>
+                        <div id="vMultCollapse" class="collapse in expandableTooltip variableExplainer" style="color:black;">
+                          By what percentage will the company's valuation increase due to hiring this person?  
+
+                          <a data-toggle="collapse" data-target="#demo">Click here for more.</a>
+                            <div id="demo" class="collapse out expandableTooltip">
+                              <small><p>It can be hard to come up with this number. Think of it this way: startups only hire new people if they believe that adding them to the team will make the company more valuable. Every new hire brings something to the table - maybe they're a great engineer who will help them build a great product, or a really persuasive marketer who will help them boost sales, or an awesome janitor who will make the office a wonderfully clean place to work.  Their labor is worth something, and the company will be better off for hiring them.</p>
+                              
+                              <p>For this number, try to guess <em>how much</em> better off they will be, as a percentage.  If the new hire has some skills that are especially valuable and rare, or if they're joining a very small team, this number may be on the higher end - perhaps 10-30%.  Otherwise, common numbers are 1% or 5%.</p>
+
+                              <p> Another way to think of this: by adding you to the team, about how much more valuable will the company appear to investors?</p>
+
+                              <p>Ultimately this is a guesstimate, but don't be modest!</p>
+                              <p><a data-toggle="collapse" data-target="#demo">Click here to collapse this text.</a></p></small>
+                            </div>
+                        </div>
+                      </td></tr>
+
+                    </table>
+                  </td>
+
+                  <td class="bordered inputTD hiddenCell">
+
+                    <div class="input-group">
+                      
+                      <input type=text id=vMultiplierBox name=varInputBox class="form-control numberInputBox" max="1000000" min="0">
+                      <span class="input-group-addon">%</span> 
+                    </div>
+                    <div class="hintPara hiddenPara"><p>Got it! Now, fill in the other three numbers and hit "calculate."</p></div>
+                    <div class="recalculatePara hiddenPara"><p>Hit "Calculate!" to update this number.</p></div>
+
+                              
+                  </td>
+
+                </tr>    
+
+              </table>
+
+
+
+              <br>
+
+              <div id=errorTextBox>
+              </div>
+
+              <br>
+
+
+              <div class="panel-group hiddenCell" id="negativeAccordion">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#negativeAccordion" href="#negativeAcc"><i class="fas fa-plus"></i> The calculator gave me a negative number. What does that mean?</a>
+                    </h4>
+                  </div>
+                  <div id="negativeAcc" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>If the calculator computes a negative number for equity, salary, or company valuation, it's essentially telling you that the company will lose money on this hire.  For example, if the calculator computes a negative number for equity, it's telling you that the employee should not receive any equity, because the salary you specified is already more than this employee deserves.</p>
+
+                      <p>In that case, to justify their hiring, the employee should either take a lower salary, or they need to bring more value to the company (which would be reflected in the equation as a higher valuation multiplier).  You could also try reducing the "salary multiplier" or "company's profit" advanced parameters.</p>
+
+                      <p>Likewise, if the calculator computes a negative number for salary, it's telling you that the employee is already being paid more than they're worth in equity, and they would effectively need to <em>pay money to the company</em> to justify getting that equity.</p>
+
+                      <p>Getting a negative number for the company valuation means something a little different.  It specifically means that the employee is being given too much equity - more than their valuation multiplier could ever justify, no matter how valuable the company is.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-success btn-block" id=calculateButton>Calculate!</button>
+
+
+              
+              
+
+
+            </div>
+
+<br>
+
+
+
+
+
+
+          </div>
+
+          <div class="col-lg-4">
+            <h4>Advanced Parameters <small>(optional)</small></h4>
+            <p>The "salary multiplier" and "company's profit" parameters are important inputs in the equation.  I’m using Paul Graham’s example values by default, but feel free to tweak them.  If you come to regret your tinkering, <a id=resetToDefaultLink href="javascript:void(0);">click here</a> to reset these back to their defaults.</p>
+
+            <table id=salaryMultTable class=advParamTable>
+            
+              <tr>
+                <td class="bordered leadingTD">
+                  <h4>Salary Multiplier <small>(optional)</small></h4>
+
+                  <div id=salaryMultiplierBoxGroup class="input-group">
+                    <input type=number id=salaryMultiplierBox class="form-control numberInputBox" max="10000" min="0">
+                    <span class="input-group-addon">%</span> 
+                  </div>
+
+                  <p>The employee's annual salary is increased by this percentage for the purpose of the equation.  This is because an employee’s salary is paid every year, not just once.  In addition, the company will incur additional “overhead” costs from the new hire.  The salary multiplier accounts for those extra costs.</p>
+                </td>
+              </tr>
+
+            </table>
+
+            <br>
+
+
+            <table id=profitTable class=advParamTable>
+            
+              <tr>
+                <td class="bordered leadingTD">
+                  <h4>Company's Profit <small>(optional)</small></h4>
+
+                  <div class="input-group">
+                    
+                    <input type=number id=companyProfitBox class="form-control numberInputBox" max="10000" min="0">
+                    <span class="input-group-addon">%</span> 
+
+                  </div>
+
+                  <p>If you set this to zero, the Graham Equation would tell you how much equity/salary an employee should receive in order to leave the company neither any better nor worse-off than they were before they hired him/her.  When you don’t account for profit, the Graham Equation calculates the “break even” number.  No company is interested in merely breaking even on a new hire, so this parameter specifies how much profit they want to make on their new employee.</p>
+                </td>
+              </tr>
+
+            </table>
+
+          </div>
+
+
+          <div class="col-lg-12">
+            <hr>
+
+            <h2>Howdy!</h1>
+            <p>I'm Steve Trambert.  The Graham Equation was helpful to me in negotiating my last job offer, and I hope you find it similarly useful!</p>
+            <p>I built this tool while teaching myself javascript and HTML/CSS, so if you have any feedback, I'd love to hear from you.  Feel free to send me suggestions, friendly criticism, questions, or death threats at <a href="mailto:grahamEquation@trambert.com">grahamEquation@trambert.com</a>.</p>
+
+            <p>I don't accept donations myself, but if you found this page helpful and you want to make my day, I'd be very grateful if you would make a donation to my favorite charity, <a href="https://grabify.link/WVCWTJ" onclick="trackOutboundClick('https://grabify.link/WVCWTJ'); return false;">GiveDirectly</a>. GiveDirectly is a lean organization working on a relatively novel approach to international charity, experimenting with direct cash-transfers to low-income individuals.  You can find their donation page <a href="https://grabify.link/J800OP" target="_blank" onclick="trackOutboundClick('https://grabify.link/J800OP'); return false;">here,</a> or you can listen to an episode of the Planet Money podcast covering their work <a href="https://grabify.link/T7N0CV" onclick="trackOutboundClick('https://grabify.link/T7N0CV'); return false;">here.</a></p>
+
+          </div>
+
+
+
+
+
+        </div>
+
+      </main>
+
+      <footer class="footer">
+        <p>&copy; <a href="http://www.trambert.com" target="_blank" onclick="trackOutboundClick('http://www.trambert.com'); return false;">Steve Trambert</a> 2018</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <script type="text/javascript" src="grahamEqScript.js"></script>
+
+  </body>
+</html>

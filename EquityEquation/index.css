@@ -1,0 +1,304 @@
+/* Space out content a bit */
+body {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+/* Custom page header */
+.header {
+  padding-bottom: 1rem;
+  border-bottom: .05rem solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 3rem;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 1.5rem;
+  color: #777;
+  border-top: .05rem solid #e5e5e5;
+}
+
+.equationImage {
+  margin: 1rem auto;
+  width: 75%;
+  min-width: 30rem;
+/*  padding: 5px;
+  border: 1px solid black;*/
+
+}
+
+
+
+
+
+#inputTable {
+  vertical-align: middle;
+}
+
+.bordered {
+  border: 1px solid black;
+  vertical-align: middle;
+}
+
+td {
+  padding: 0.25rem 0.5rem;
+}
+
+.leadingTD {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.inputTD {
+  min-width: 15rem;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.advParamTable {
+  background-color: AliceBlue;
+/*  background-color: rgb(238, 238, 238); */
+
+}
+
+#calculateButton {
+  font-size: 3rem;
+}
+
+.rightJust {
+  float: right;
+}
+
+
+
+
+/* Customize container */
+@media (min-width: 48em) {
+  .container {
+    max-width: 100rem;
+  }
+}
+.container-narrow > hr {
+  margin: 2rem 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: .05rem solid #e5e5e5;
+  /*background: AliceBlue;*/
+}
+.jumbotron .btn {
+  padding: .75rem 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 3rem 0;
+}
+.marketing p + h4 {
+  margin-top: 1.5rem;
+}
+
+.display-3 {
+  font-size: 3em;
+}
+
+
+
+
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 48em) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+
+
+
+/*Diagonal background
+*/
+.chosenOutput {
+  /*color: white;*/
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(92, 184, 92, 0.5) 10px,
+    rgba(92, 184, 92, 0.5) 20px
+  )
+}
+
+.thisNumberWasComputed {
+  font-weight: bold;
+}
+
+.thisNumberNotComputed {
+  color: #c3d0e5;
+}
+
+#errorTextBox {
+  font-weight: bold;
+  color: red;
+  text-align: center;
+}
+
+.hintPara {
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: center;
+  max-width: 15rem;
+}
+
+.recalculatePara {
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: center;
+  max-width: 15rem;
+  color: #4262f4;
+}
+
+.hiddenPara{
+  display:none;
+}
+
+.expandableTooltip {
+  font-size: 0.95em;
+  color: purple;
+}
+
+
+.hiddenCell {
+   display:none;
+    
+}
+
+#exampleButton {
+  display:inline-block;
+}
+
+
+
+
+
+/* This defines the "pulse" animation I'm using to highlight input fields when their values are computed/assigned.
+*/
+
+.changesAreAnimated {
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+}
+
+.pulseOn {
+  box-shadow: 0 0 20px green;
+  background-color: rgb(92, 184, 92);
+}
+
+
+
+
+
+/*This code makes the radio buttons glow green until one of them is clicked.  Adapted from this code by Ola https://codepen.io/olam/pen/zcqea
+*/
+.glowingUntilClicked {
+  animation: pulse 1.5s infinite;
+}
+
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(92, 184, 92, 1);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(92, 184, 92, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(92, 184, 92, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(92, 184, 92, 1);
+    box-shadow: 0 0 0 0 rgba(92, 184, 92, 1);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(92, 184, 92, 0);
+      box-shadow: 0 0 0 10px rgba(92, 184, 92, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(92, 184, 92, 0);
+      box-shadow: 0 0 0 0 rgba(92, 184, 92, 0);
+  }
+}
+
+
+
+
+
+
+/*This code makes the radio buttons glow green until one of them is clicked.  Adapted from this code by Ola https://codepen.io/olam/pen/zcqea
+*/
+.errorGlow {
+  animation: errorPulse 1s infinite;
+}
+
+
+@-webkit-keyframes errorPulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 1);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+@keyframes errorPulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(255, 0, 0, 1);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 1);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+      box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
